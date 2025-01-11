@@ -20,3 +20,10 @@ To use the function, you need to include several columns in your dataset:
 - pcs, mcs, kdcs, effect, burden, symptom: main effects of KDQoL-36 scales
 - x_sq, for x in [pcs, mcs, kdcs, effect, burden, symptom]: square effects
 - x_y, for x in [pcs, mcs, kdcs, effect, burden, symptom] and y in [pcs, mcs, kdcs, effect, burden, symptom]: interaction effects
+
+## Setting up the Arguments
+
+- *psiv* indicates the range of the value set of the targeted variable.
+- *thre* refers to the number of k-fold models that must fail to converge before the performance of the model is not calculated. Sometimes, especially when the data-size is small (it is a common problem in k-fold validation, as it will split the data set into smaller ones) and the number predicting variables is large, the ALDVMM won't converge. *thre* = 3 means that when 3 models fail to converge in this k-fold cross validation, the results will not be calculated. Obviously, *thre* should be smaller than *k*.
+- *k* means k-fold cross validation.
+- *ncp* means the number of components of ALDVMM. For small data set, we recommend you set a small value for this argument (2 or 3), which might bring better performence and less risk of failing to converge.
